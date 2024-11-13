@@ -1,4 +1,4 @@
-import { useState, useReducer, useEffect } from "react";
+import { useState, useReducer } from "react";
 import Todo from "./components/Todo";
 import "./App.css";
 
@@ -59,6 +59,7 @@ export default function App() {
 
   return (
     <main>
+      <h1>To Do List</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -66,7 +67,7 @@ export default function App() {
           onChange={(e) => setName(e.target.value)}
         />
       </form>
-      {todos.map((todo) => {
+      {todos.slice().reverse().map((todo) => {
         return <Todo key={todo.id} todo={todo} dispatch={dispatch} />;
       })}
     </main>
