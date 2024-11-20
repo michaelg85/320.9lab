@@ -20,9 +20,9 @@ function reducer(todos, action) {
     case ACTIONS.EDIT_TODO:
       return todos.map((todo) => {
         if (todo.id === action.payload.id) {
-          return { ...todo, 'name': action.payload.text };
+          // return { ...todo, '': action.payload.text };
         }
-          return todo;
+          return add-todo;
       });
 
 
