@@ -4,6 +4,17 @@ import { ACTIONS } from "../App";
 export default function Todo({ todo, dispatch }) {
   return (
     <div>
+      <input
+        type="checkbox"
+        checked={todo.complete} // Checked state based on the todo's complete status
+        onChange={() =>
+          dispatch({
+            type: ACTIONS.TOGGLE_TODO, // Dispatch toggle action
+            payload: { id: todo.id },
+          })
+        }
+      />
+
       <span style={{ color: todo.complete ? "#AAA" : "#FFF" }}>
         {todo.name}
       </span>
@@ -18,24 +29,28 @@ export default function Todo({ todo, dispatch }) {
       ></input>
 
 
+
       <button
         onClick={() =>
-          dispatch({ 
-            type: ACTIONS.TOGGLE_TODO, 
+          dispatch({
+            type: ACTIONS.TOGGLE_TODO,
             payload: { id: todo.id },
-           })
+          })
         }
       >
         Completed
       </button>
 
+
+
       <button
-        onClick={() =>
+        onChange={() =>
           dispatch({ type: ACTIONS.EDIT_TODO, payload: { id: todo.id } })
         }
       >
         Edit
       </button>
+
 
 
       <button
