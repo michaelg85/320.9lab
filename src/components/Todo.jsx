@@ -7,7 +7,7 @@ export default function Todo({ todo, dispatch }) {
       <span style={{ color: todo.complete ? "#AAA" : "#FFF" }}>
         {todo.name}
       </span>
-      
+
       <input
         onChange={() =>
           dispatch({
@@ -17,13 +17,27 @@ export default function Todo({ todo, dispatch }) {
         }
       ></input>
 
+
       <button
         onClick={() =>
-          dispatch({ type: ACTIONS.TOGGLE_TODO, payload: { id: todo.id } })
+          dispatch({ 
+            type: ACTIONS.TOGGLE_TODO, 
+            payload: { id: todo.id },
+           })
         }
       >
         Completed
       </button>
+
+      <button
+        onClick={() =>
+          dispatch({ type: ACTIONS.EDIT_TODO, payload: { id: todo.id } })
+        }
+      >
+        Edit
+      </button>
+
+
       <button
         onClick={() =>
           dispatch({ type: ACTIONS.DELETE_TODO, payload: { id: todo.id } })
